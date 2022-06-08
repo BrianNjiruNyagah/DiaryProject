@@ -1,0 +1,26 @@
+.welcome {
+    color: rgba(245, 199, 199, 0.915);
+    font-family: cursive;
+    text-decoration: underline;
+}
+
+.title{
+  font-family:cursive ;
+  color: rgb(217, 160, 75);  
+}
+
+.diaryDetails{
+    border-style: none none none solid;
+    border-width: 0px 0px 0px 15px;
+    margin-bottom: -2%;
+    border-color: rgb(160, 96, 233);
+}
+
+.diaryPage{
+    background-color: darkslateblue;
+    height: 100%;
+    position: absolute;
+    background-image: url(leather-light-black-material.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                        <!-- Bootstrap CSS -->
+        <link 
+            rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous" 
+        />
+        <link rel="stylesheet" href="./style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+        <title>Create new diary</title>
+    </head>
+    <body>
+        <% if(userDetails){ %>
+            <div class="container">
+                <form action="/insertNewDiaryData" method="post">
+                    <div class="mb-3">
+                        <label for="Date" class="form-label" style="font-family: cursive;"> <h3> Date </h3></label>
+                        <input type="date"  class="form-control" id="Date"  name="date" value="<%=userDetails.date%>" <%=userDetails.readonly%>  >
+                    </div>
+                    <div class="mb-3">
+                        <label for="Title" class="form-label" style="font-family: cursive;"> <h3> Title </h3></label>
+                        <input type="text" class="form-control" id="Title"  name="title" value="<%=userDetails.title%>" <%=userDetails.readonly%> >
+                    </div>
+                    <div class="mb-3">
+                        <label for="Data" class="form-label" style="font-family: cursive;"> <h3> Message </h3></label>
+                        <input type="text" class="form-control" id="Data"  name="data" value="<%=userDetails.data%>" <%=userDetails.readonly%> >
+                    </div>
+                    <div class="mb-3">
+                    <button type="submit" id="button" class="btn btn-success" style="font-family: cursive;">Save</button>  
+                    </div>    
+                </form>
+                <div class="row row-cols-auto">
+                    <form action="/homepage/delete/<%=userDetails.ID%>&<%=userDetails.diaryNumber%>" method="post" class="col">
+                        <button type="submit" class="btn btn-danger" style="font-family: cursive;">Delete</button>  
+                    </form> 
+                    <button onclick="history.back()" class="btn btn-primary col" style="font-family: cursive;">Go Back</button>
+                </div>                   
+
+            </div>
+        <% } else { %>
+            <div class="container">
+                <form action="/insertNewDiaryData" method="post">
+                    <div class="mb-3">
+                        <label for="Date" class="form-label" style="font-family: cursive;"> <h3> Date </h3></label>
+                        <input type="date"  class="form-control" id="Date"  name="date" value="<%=userDetails.date%>" >  
+                    </div>
+                    <div class="mb-3">
+                        <label for="Title" class="form-label" style="font-family: cursive;"> <h3> Title </h3></label>
+                        <input type="text" class="form-control" id="Title"  name="title" value="<%=userDetails.title%>" > 
+                    </div>
+                    <div class="mb-3">
+                        <label for="Data" class="form-label" style="font-family: cursive;"> <h3> Message </h3></label>
+                        <input type="text" class="form-control" id="Data"  name="data" value="<%=userDetails.data%>" > 
+                    </div>
+                    <div class="mb-3">
+                    <button type="submit" id="button" class="btn btn-success" style="font-family: cursive;">Save</button>  
+                    </div>    
+                </form>
+                <div class="row row-cols-auto">
+                    <button onclick="history.back()" class="btn btn-primary col" style="font-family: cursive;">Go Back</button>
+                </div>                   
+            </div>
+        <% } %>
+    </body>
+</html>
+

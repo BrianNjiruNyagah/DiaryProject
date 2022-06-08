@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <!-- Bootstrap CSS -->
+        <link 
+            rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous" 
+        />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="homepage.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container-lg">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark " ">
+                <div class="container navbar-brand">My Diary App</div>
+                <a class="navbar-brand nav-link active" href="/homepage/createDiary" > Create Diary</a>
+                <a class="navbar-brand" href="" onclick="document.getElementById('my_form').submit(); return false;" > Log Out</a>
+                <form action="/logout?_method=DELETE" method="POST" id="my_form"></form> 
+            </nav>
+            <div class="container-fluid diaryPage" ">
+                <h2 class="container-fluid welcome">
+                    Welcome <%=username %>
+                </h2>
+                <div class="container " style="text-align: center;" >
+                    <% for(let x of userDetails){ %>          
+                        <a href="/homepage/read/<%=x.ID%>&<%=x.diaryNumber%>" style="display:table-cell ;"> 
+                            <div class="diaryDetails">
+                                <h3 class="title"> <%= x.title%> </h3>
+                            </div>
+                        </a>
+                        <br>   
+                    <%}%>
+                </div>  
+            </div>           
+        </div>
+    </body>
+</html>

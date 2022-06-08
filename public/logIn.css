@@ -1,0 +1,25 @@
+
+body{
+    background-color:dimgray;
+
+}
+
+form {
+    padding-top: 10%;
+    margin: auto;
+}
+
+.logIn {
+    margin: auto;
+    width: 50%;
+    border-radius: 10px;
+    background-image: url(backgroundImageForLogIn.webp);
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.logIn label{
+    color:gray;
+    font-family: cursive;
+}

@@ -1,5 +1,6 @@
 "use-strict";
 const createNewDiary = require('../crudOperations/createNewDiary');
+const storeEditedDiaryDetails = require('../crudOperations/editExistingDiary');
 const readDiary = require('../crudOperations/readExisitingDiary');
 const deleteDiary = require('../crudOperations/deleteExistingDiary');
 const express = require('express');
@@ -26,6 +27,15 @@ router.post('/insertNewDiaryData',(req,res)=>{
     const data = req.body.data;
     createNewDiary(mysqlConnection,ID,username,date,title,data,res);
 });
+
+router.post('/insertEditedDiaryData/:ID&:DN',(req,res)=>{
+    const ID = req.params.ID;
+    const DN = req.params.DN;
+    const title = req.body.title;
+    const data = req.body.data;
+    storeEditedDiaryDetails(mysqlConnection,ID,DN,title,data,res);
+});
+
 
 router.post('/homepage/delete/:ID&:DN',(req,res)=>{
     deleteDiary(mysqlConnection,req.params.ID,req.params.DN,res)

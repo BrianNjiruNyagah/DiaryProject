@@ -44,10 +44,10 @@ router.post('/signUp', (req,res)=>{
     createNewAccount(mysqlConnection,req.body.name,req.body.email,req.body.username,req.body.password,
     (err) => {
         if(err!==null) {
+            console.log(err)
             res.render('signUp.ejs',{error:err.message})
         }
     });
-    res.redirect('/logIn');
 });
 
 router.get('/logIn', checkNotAuthenticated,(req,res) => {

@@ -16,15 +16,19 @@
         <title>Sign Up</title>
     </head>
     <body>  
-        <div>
-            <%if(error){%>
-                <%= error %>
-            <%}%>  
-        </div>
+
 
         <div class="container formLogIn">
+            
+ 
+                      
             <form action="/signUp" method="POST" class="container">
-
+                
+                <%if(error){%>
+                    <div class="container alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>      
+                <%}%> 
                 <div class="container logIn">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name</label>

@@ -7,16 +7,17 @@ function storeNewUserDetails (mysqlConnection,name,email, username, password,cal
         mysqlConnection.query(` SELECT * FROM users WHERE usersEmail = '${email}' ` ,
         (error,results)=>{
             if(error) { 
+                console.log('error 1')
                 return error;
             }
-            console.log(results.length)
-            setTimeout(()=>{
-                if(results.length > 0){
-                    callback(new Error("the error is here"));
-                 
-                }
-            },1);
             
+            if(results.length > 0){
+                console.log(results.length)
+                setTimeout(()=>{
+                    callback(new Error("This email adrress is already in use "));
+                    return;       
+                },0);                
+            }
 
             if(results.length == 0) {
                 mysqlConnection.query(`  insert into users (usersName,usersEmail,usersUserName,usersPassword)

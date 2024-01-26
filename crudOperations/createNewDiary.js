@@ -9,4 +9,5 @@ function storeDiaryDetails(mysqlConnection,id,username,date,title,data,res){
         }
     )
 }
+
 module.exports = storeDiaryDetails;

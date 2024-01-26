@@ -4,9 +4,9 @@ const storeEditedDiaryDetails = require('../crudOperations/editExistingDiary');
 const readDiary = require('../crudOperations/readExisitingDiary');
 const deleteDiary = require('../crudOperations/deleteExistingDiary');
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const router = express.Router();
-require('dotenv').config();
+require('dotenv').config({path:'.env'});
 const mysqlConnection = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,

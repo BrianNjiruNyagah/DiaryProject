@@ -59,25 +59,26 @@
 
             </div>
         <% } else { %>
-            <div class="container">
-                <form action="/insertNewDiaryData" method="post">
-                    <div class="mb-3">
+            <div class="container ">
+                
+                <form action="/insertNewDiaryData" method="post" class="container-lg ">
+                    <div class="container row row-cols-auto mb-3" >
                         <label for="Date" class="form-label" style="font-family: cursive;"> <h3> Date </h3></label>
-                        <input type="date"  class="form-control" id="Date"  name="date" value="<%=userDetails.date%>" >  
+                        <input type="date"  class="form-control" id="Date"  name="date" value="<%=userDetails.date%>" required>  
                     </div>
-                    <div class="mb-3">
+                    <div class="container row row-cols-auto mb-3">
                         <label for="Title" class="form-label" style="font-family: cursive;"> <h3> Title </h3></label>
-                        <input type="text" class="form-control" id="Title"  name="title" value="<%=userDetails.title%>" > 
+                        <input type="text" class="form-control" id="Title"  name="title" value="<%=userDetails.title%>" required> 
                     </div>
-                    <div class="mb-3">
+                    <div class="container row row-cols-auto mb-3">
                         <label for="Data" class="form-label" style="font-family: cursive;"> <h3> Message </h3></label>
-                        <input type="text" class="form-control" id="Data"  name="data" value="<%=userDetails.data%>" > 
+                        <input type="text" class="form-control" id="Data"  name="data" value="<%=userDetails.data%>" required> 
                     </div>
-                    <div class="mb-3">
+                    <div class="container row row-cols-auto mb-3">
                     <button type="submit" id="button" class="btn btn-success" style="font-family: cursive;">Save</button>  
                     </div>    
                 </form>
-                <div class="row row-cols-auto">
+                <div class="container row row-cols-auto">
                     <button onclick="history.back()" class="btn btn-primary col" style="font-family: cursive;">Go Back</button>
                 </div>                   
             </div>

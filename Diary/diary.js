@@ -7,8 +7,9 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const initializePassport = require('../userAccess/logInInstatialization ');
 const createNewAccount = require('../userAccess/createNewAccount');
-require('dotenv').config();
-const mysql = require('mysql');
+require('dotenv').config({path:".env"});
+const mysql = require('mysql2');
+
 const mysqlConnection = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,
@@ -16,12 +17,14 @@ const mysqlConnection = mysql.createConnection({
     database: process.env.DATABASE,
     insecureAuth:true
 });
+
 initializePassport(passport,mysqlConnection);
 
 router.use(express.urlencoded({extended:false}));
 router.use(flash());
 router.use(session({
     secret: process.env.SECRET,
+    // secret: 'secret',
     resave: false,
     saveUninitialized: false
   }));

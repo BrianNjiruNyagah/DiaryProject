@@ -8,8 +8,9 @@ const methodOverride = require('method-override');
 const initializePassport = require('../userAccess/logInInstatialization ');
 const createNewAccount = require('../userAccess/createNewAccount');
 require('dotenv').config({path:".env"});
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
+console.log(process.env.PASSWORD,"heere")
 const mysqlConnection = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,

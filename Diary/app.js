@@ -9,5 +9,5 @@ app.use('/',diary);
 app.use('/',crudRouterPath)
 app.set('view-engine','ejs');
 
-app.listen(5000,()=>{console.log('works 5000')});
+app.listen(80,()=>{console.log('works 80')});
 

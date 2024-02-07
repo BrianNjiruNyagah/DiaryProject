@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const localStartegy = require('passport-local').Strategy;
 function initialize(passport,mysqlConnection){
     const authenticateUser = (email,password,done)=>{

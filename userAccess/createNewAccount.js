@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 function storeNewUserDetails (mysqlConnection,name,email, username, password,callback ){
     bcrypt.hash(password,10,(error,hash)=>{
         if(error){

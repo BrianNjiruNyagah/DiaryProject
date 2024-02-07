@@ -7,6 +7,7 @@ const app = express();
 app.use(express.static('./public'));
 app.use('/',diary);
 app.use('/',crudRouterPath)
+app.use('/healthcheck', require('./Diary/healthcheck'));
 app.set('view-engine','ejs');
 
 app.listen(80,()=>{console.log('works 80')});
